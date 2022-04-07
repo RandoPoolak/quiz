@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Log
 public class FrontendController {
     @Autowired
-    private QuizDataService quizDataService
+    private QuizDataService quizDataService;
 
     @GetMapping("/")
     public String index(Model model){
@@ -25,7 +25,7 @@ public class FrontendController {
     @GetMapping("/select")
     public String select(Model model){
         model.addAttribute("gameOptions", new GameOptions());
-        model.addAttribute("categories", quizDataService.getQuizCategories(););
+        model.addAttribute("categories", quizDataService.getQuizCategories());
         return "select";
     }
 

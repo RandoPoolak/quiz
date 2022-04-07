@@ -14,11 +14,12 @@ import java.util.List;
 @Log
 public class QuizDataService {
 
-    public void getQuizCategories(){
+    public List<CategoriesDto.CategoryDto> getQuizCategories(){
         RestTemplate restTemplate = new RestTemplate();
         CategoriesDto result = restTemplate.getForObject("https://opentdb.com/api_category.php", CategoriesDto.class);
         assert result != null;
         log.info("Quiz categories: " + result.getCategories());
+        return result.getCategories();
     }
 
     public void getQuizQuestions(){
